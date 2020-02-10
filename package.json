@@ -1,0 +1,20 @@
+{
+  "name": "n2d",
+  "version": "1.0.0",
+  "description": "A package that transforms your number into its descriptive form.",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node js/b2d.js"
+  },
+  "dependencies": {
+    "@types/node": "^13.7.0",
+    "clear": "^0.1.0",
+    "clipboardy": "^2.1.0",
+    "clui": "^0.3.6",
+    "cors": "^2.8.5",
+    "figlet": "^1.2.4",
+    "inquirer": "^7.0.3"
+  },
+  "author": "brunodev09",
+  "license": "MIT"
+}
