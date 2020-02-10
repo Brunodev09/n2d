@@ -1,10 +1,8 @@
-import _ from "./tools/Terminal";
 import { dict, order } from "./dictionary";
-
 import { Receives } from "./types";
 
 
-export class b2d {
+export class n2d {
     static setPrefix(index: number, len: number) {
         switch (index) {
             case 0: return order[len];
@@ -52,7 +50,7 @@ export class b2d {
         let prefix: string = "";
         let finalString = "";
 
-        input = b2d.cleanString(String(input));
+        input = n2d.cleanString(String(input));
 
         if (input[0] === "0") return dict[0];
         const len = ((<string>input).length / 3).toFixed(1);
@@ -81,13 +79,12 @@ export class b2d {
             tripletsArr[rCounter] = e.reverse();
             rCounter++;
         }
-        console.log(tripletsArr)
 
         let index = 0;
         for (let triple of tripletsArr) {
             if (tripletsArr[index].length <= 2) {
-                finalString = `${b2d.translate(triple)} `;
-                if (index !== tripletsArr.length - 1) finalString += `${b2d.setPrefix(index, tripletsArr.length)} `;
+                finalString = `${n2d.translate(triple)} `;
+                if (index !== tripletsArr.length - 1) finalString += `${n2d.setPrefix(index, tripletsArr.length)} `;
                 index++;
                 if (tripletsArr.length === 1) break;
                 else {
@@ -102,13 +99,13 @@ export class b2d {
                 continue;
             }
             else {
-                finalString += `${b2d.translate([triple[0]])} hundred `;
+                finalString += `${n2d.translate([triple[0]])} hundred `;
                 aux = triple.length > 1 ? triple.slice(1) : triple
             }
-            if (!b2d.progressionCheck(aux)) {
+            if (!n2d.progressionCheck(aux)) {
                 if (tripletsArr.length === 1 || index === tripletsArr.length - 1) break;
                 else {
-                    finalString += ` ${b2d.setPrefix(index, tripletsArr.length)}`;
+                    finalString += ` ${n2d.setPrefix(index, tripletsArr.length)}`;
                     if (finalString[finalString.length - 1] !== "") finalString += " ";
                     index++;
                     continue;
@@ -116,8 +113,8 @@ export class b2d {
             }
             
             finalString += ' ';
-            if (triple.length > 1) finalString += `${b2d.translate(triple, prefix)}`;
-            if (index !== tripletsArr.length - 1) finalString += ` ${b2d.setPrefix(index, tripletsArr.length)}`;
+            if (triple.length > 1) finalString += `${n2d.translate(triple, prefix)}`;
+            if (index !== tripletsArr.length - 1) finalString += ` ${n2d.setPrefix(index, tripletsArr.length)}`;
             index++;
             if (finalString[finalString.length - 1] !== "") finalString += " ";
         }
